@@ -1,13 +1,17 @@
 {
   "version": 2,
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/backend/server.js"
-    },
+    { "source": "/api/(.*)", "destination": "/backend/server.js" },
+    { "source": "/uploads/(.*)", "destination": "/backend/uploads/$1" },
+    { "source": "/(.*)", "destination": "/frontend/$1" }
+  ],
+  "headers": [
     {
       "source": "/(.*)",
-      "destination": "/frontend/$1"
+      "headers": [
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
     }
   ]
 }
