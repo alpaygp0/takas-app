@@ -1,0 +1,184 @@
+/* ==========================================================================
+   1. YENİ PREMIUM RENK PALETİ VE DEĞİŞKENLER
+   ========================================================================== */
+:root {
+    --primary-color: #5a5cf6;      /* Lüks İndigo Moru */
+    --primary-light: #eff0ff;      /* Butonlar için uçuk mor */
+    --success-color: #10b981;      /* Canlı Zümrüt Yeşili (İndirim yazıları için) */
+    
+    --bg-color: #f8fafc;           /* Çok açık buz grisi arka plan */
+    --surface-color: #ffffff;      /* Saf Beyaz (Kartlar ve Menü) */
+    
+    --text-dark: #1e293b;          /* Koyu Lacivert/Siyah Metin */
+    --text-light: #64748b;         /* Yumuşak Gri Metin */
+    --border-color: #e2e8f0;       /* İnce zarif çizgiler */
+    
+    --shadow-sm: 0 2px 10px rgba(0,0,0,0.02);
+    --shadow-md: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* GECE MODU */
+body.dark-mode {
+    --bg-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-dark: #f1f5f9;
+    --text-light: #94a3b8;
+    --border-color: #334155;
+    --primary-light: rgba(90, 92, 246, 0.2);
+    --shadow-sm: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* ==========================================================================
+   2. TEMEL AYARLAR
+   ========================================================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-dark); }
+body, .navbar, .modal-content, .filter-btn, .campaign-card { transition: all 0.4s ease; }
+
+/* ==========================================================================
+   3. ÜST MENÜ (NAVBAR) VE YENİ DİZİLİM
+   ========================================================================== */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 5%; background-color: var(--surface-color);
+    box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 100;
+}
+.logo { font-size: 22px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.logo-icon { color: var(--primary-color); font-size: 24px; }
+
+/* Görseldeki Orta Menü Linkleri */
+.nav-links { display: flex; gap: 30px; font-size: 14px; font-weight: 500; }
+.nav-links a { color: var(--text-light); text-decoration: none; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary-color); font-weight: 600; }
+
+.nav-buttons { display: flex; align-items: center; gap: 15px; }
+
+button { cursor: pointer; border-radius: 20px; font-weight: 600; font-size: 14px; transition: all 0.3s ease; }
+.btn-text { background: transparent; border: none; color: var(--text-dark); padding: 8px 15px; }
+.btn-text:hover { color: var(--primary-color); }
+.btn-primary { background: var(--primary-color); border: none; color: #fff; padding: 10px 24px; display: flex; align-items: center; gap: 8px; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(90, 92, 246, 0.3); }
+
+/* ==========================================================================
+   4. KARŞILAMA EKRANI (HERO)
+   ========================================================================== */
+.dashboard-hero { padding: 40px 5% 20px; }
+.hero-card-container {
+    display: flex; background: var(--surface-color); border-radius: 24px;
+    padding: 50px; box-shadow: var(--shadow-sm); gap: 40px; align-items: center;
+}
+.hero-text-area { flex: 1.2; }
+.hero-text-area h1 { font-size: 32px; margin-bottom: 15px; line-height: 1.3; color: var(--text-dark); }
+.hero-text-area h1 .highlight { color: var(--primary-color); }
+.hero-text-area p { color: var(--text-light); margin-bottom: 25px; line-height: 1.6; font-size: 14px; }
+.btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-dark); padding: 10px 24px; }
+
+/* Yükleme Alanı */
+.hero-upload-area { flex: 0.8; }
+.upload-dashed-box {
+    border: 2px dashed rgba(90, 92, 246, 0.3); background: var(--primary-light);
+    border-radius: 20px; padding: 40px 20px; text-align: center; cursor: pointer; transition: transform 0.3s;
+}
+.upload-dashed-box:hover { transform: scale(1.02); border-color: var(--primary-color); }
+.upload-dashed-box h3 { color: var(--primary-color); font-size: 16px; margin-top: 15px; }
+.upload-dashed-box p { font-size: 12px; color: var(--text-light); margin-top: 5px; }
+
+/* ==========================================================================
+   5. ARAMA VE FİLTRE ÇUBUĞU
+   ========================================================================== */
+.campaign-pool { padding: 20px 5% 60px; }
+.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px; }
+
+.search-box {
+    flex: 0 0 300px; display: flex; align-items: center;
+    background: var(--surface-color); border: 1px solid var(--border-color);
+    border-radius: 30px; padding: 12px 20px;
+}
+.search-box input { border: none; background: transparent; width: 100%; outline: none; margin-left: 10px; color: var(--text-dark); font-size: 14px; }
+.search-box .search-icon { color: var(--text-light); }
+
+.filters { display: flex; gap: 10px; align-items: center; }
+.filter-btn {
+    background: transparent; border: none; color: var(--text-light);
+    padding: 8px 18px; border-radius: 20px; font-size: 14px; font-weight: 500;
+}
+.filter-btn.active { background: var(--primary-color); color: #fff; box-shadow: 0 4px 10px rgba(90, 92, 246, 0.2); }
+.filter-btn:hover:not(.active) { color: var(--text-dark); }
+
+/* ==========================================================================
+   6. YENİ KUPON KARTLARI (GÖRSELDEKİNİN BİREBİR AYNISI)
+   ========================================================================== */
+.campaign-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+
+.campaign-card {
+    background: var(--surface-color); border-radius: 20px; padding: 25px;
+    border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column;
+}
+.campaign-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--primary-light); }
+
+/* Kart Üst Kısım: İkon, Marka, Tarih, Rozet */
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
+.card-brand-info { display: flex; align-items: center; gap: 12px; }
+.card-icon {
+    width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.icon-blue { background: #e0f2fe; color: #0284c7; }
+.icon-pink { background: #fce7f3; color: #db2777; }
+.icon-orange { background: #ffedd5; color: #ea580c; }
+
+.brand-texts h4 { font-size: 15px; color: var(--text-dark); font-weight: 700; margin-bottom: 2px; }
+.brand-texts p { font-size: 11px; color: var(--text-light); }
+
+.sponsor-badge { font-size: 10px; font-weight: 700; padding: 4px 0; }
+.badge-yellow { color: #d97706; } /* Turkcell sarısı */
+.badge-red { color: #dc2626; }    /* Vodafone kırmızısı */
+.badge-blue { color: #2563eb; }   /* Türk Telekom mavisi */
+
+/* Kart Başlık ve İndirim Vurgusu */
+.card-title { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 20px; line-height: 1.5; min-height: 42px; }
+.text-green { color: var(--success-color); font-weight: 700; }
+
+/* Bulanık Şifre Kutusu */
+.secret-box {
+    background: var(--bg-color); border-radius: 12px; padding: 12px 15px;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 20px; border: 1px solid var(--border-color);
+}
+.secret-text {
+    font-family: monospace; font-size: 16px; font-weight: bold; letter-spacing: 3px;
+    color: var(--text-dark); filter: blur(5px); user-select: none; /* Metni bulanıklaştırır ve seçilmeyi önler */
+}
+.lock-icon { color: var(--text-light); font-size: 14px; }
+
+/* Yumuşak Takas Butonu */
+.btn-trade-full {
+    width: 100%; background: var(--primary-light); color: var(--primary-color);
+    border: none; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 14px;
+}
+.btn-trade-full:hover { background: var(--primary-color); color: #fff; }
+
+/* Modal, Bildirim ve Mobil Uyumluluk (Eski kodlarla aynı mantık) */
+.toast-container { position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; }
+.toast { min-width: 280px; background: var(--surface-color); color: var(--text-dark); padding: 16px 20px; border-radius: 12px; box-shadow: var(--shadow-md); font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 12px; transform: translateX(120%); animation: slideInRight 0.5s forwards; border-left: 5px solid var(--success-color); }
+@keyframes slideInRight { to { transform: translateX(0); } }
+.toast.fade-out { opacity: 0; transform: translateX(100%); }
+
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px); align-items: center; justify-content: center; }
+.modal-content { background-color: var(--surface-color); padding: 30px; border-radius: 20px; width: 90%; max-width: 450px; position: relative; box-shadow: var(--shadow-md); }
+.close-btn { position: absolute; top: 15px; right: 20px; font-size: 24px; color: var(--text-light); cursor: pointer; }
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; font-size: 13px; margin-bottom: 5px; color: var(--text-light); }
+.input-group input, .input-group select { width: 100%; padding: 10px 15px; border: 1px solid var(--border-color); border-radius: 10px; background: var(--surface-color); color: var(--text-dark); outline: none; }
+.input-group input:focus { border-color: var(--primary-color); }
+
+@media screen and (max-width: 768px) {
+    .nav-links { display: none; } /* Mobilde orta menüyü gizle */
+    .hero-card-container { flex-direction: column; padding: 30px 20px; }
+    .toolbar { flex-direction: column; align-items: stretch; }
+    .search-box { flex: auto; width: 100%; }
+    .filters { overflow-x: auto; padding-bottom: 5px; }
+    .filter-btn { white-space: nowrap; }
+}
+
+@keyframes fadeIn { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } } .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
